@@ -23,4 +23,10 @@ public class AccountService {
         System.out.println(account);
         return account.getBalance();
     }
+
+    public void printOperationsHistory(Account account) {
+        System.out.println("******** Print operations history of the account ********");
+        account.getOperationHistory().forEach(System.out::println);
+        System.out.println("******** End print ********");
+    }
 }

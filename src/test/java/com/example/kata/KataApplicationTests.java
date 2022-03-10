@@ -37,10 +37,11 @@ class KataApplicationTests {
 	}
 
 	@Test
-	void givenAccountBalance0_depositAmount20_withdrawAmount10_inspectAccountOperationHistory_returnAllOperationsOfAccount() {
+	void givenAccountBalance0_depositAmount20_withdrawAmount10_inspectAccountOperationHistory_outputHistoryOperations() {
 		Account account = new Account(10);
 		accountService.deposit(account,20);
 		accountService.withdraw(account,10);
+		accountService.printOperationsHistory(account);
 		assertThat(account.getOperationHistory().size()).isEqualTo(2);
 		assertThat(account.getOperationHistory().get(0).getAmount()).isEqualTo(20);
 		assertThat(account.getOperationHistory().get(0).getOperationType()).isEqualTo(OperationTypeEnum.DEPOSIT);
